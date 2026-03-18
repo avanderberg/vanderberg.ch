@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Datenschutzerklärung – Alexander van der Berg</title>
+  <meta name="description" content="Datenschutzerklärung von Alexander van der Berg, Software-Qualitätssicherung und Testing.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.vanderberg.ch/privacy-policy">
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-primary: #1a1a2e;
+      --color-accent: #e8a838;
+      --color-accent-dark: #c48a1f;
+      --color-text: #222;
+      --color-text-light: #555;
+      --color-bg: #fff;
+      --color-bg-soft: #f8f7f4;
+      --color-border: #e0ddd6;
+      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --max-width: 1100px;
+      --radius: 8px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { color: var(--color-accent-dark); }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--color-accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--color-accent); }
+    .nav-links .nav-cta { color: var(--color-accent); font-weight: 700; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== PRIVACY POLICY CONTENT ===== */
+    .policy-header {
+      background: var(--color-primary);
+      padding: 4rem 1.5rem 3rem;
+    }
+
+    .policy-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .policy-header .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-header h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-header .version {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.875rem;
+    }
+
+    .policy-body {
+      padding: 4rem 1.5rem 5rem;
+      background: var(--color-bg);
+    }
+
+    .policy-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .policy-content p {
+      color: var(--color-text-light);
+      margin-bottom: 1.25rem;
+    }
+
+    .policy-content h2 {
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--color-accent);
+      display: inline-block;
+    }
+
+    .policy-content h2:first-child { margin-top: 0; }
+
+    .policy-content ul {
+      margin: 0.5rem 0 1.25rem 1.5rem;
+      color: var(--color-text-light);
+    }
+
+    .policy-content ul li { margin-bottom: 0.4rem; }
+
+    .policy-content a {
+      word-break: break-all;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--color-accent); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--color-primary);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .policy-header { padding: 3rem 1.25rem 2rem; }
+      .policy-body { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">van der <span>Berg</span></a>
+      <button class="nav-toggle" aria-label="Menü öffnen/schließen" aria-expanded="false" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="/#about">Über mich</a></li>
+        <li><a href="/#services">Leistungen</a></li>
+        <li><a href="/#testimonials">Referenzen</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact" class="nav-cta">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="policy-header">
+    <div class="policy-header-inner">
+      <p class="section-label">Rechtliches</p>
+      <h1>Datenschutzerklärung</h1>
+      <p class="version">Version gültig ab 29. Dezember 2025</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="policy-body">
+    <div class="policy-content">
+
+      <p>In dieser Datenschutzerklärung (nachfolgend „Datenschutzerklärung“) erläutern wir, Alexander van der Berg (nachfolgend wir oder uns), wie wir personenbezogene Daten erheben und anderweitig verarbeiten.</p>
+
+      <p>Der Begriff „personenbezogene Daten“ oder „Daten“ bezeichnet alle Informationen, die sich auf eine bestimmte oder bestimmbare Person beziehen. Wenn Sie uns personenbezogene Daten anderer Personen (z. B. von Familienmitgliedern oder Arbeitskollegen) mitteilen, stellen Sie bitte sicher, dass diese Personen von dieser Datenschutzerklärung Kenntnis haben, und teilen Sie deren Daten nur dann mit uns, wenn Sie dazu berechtigt sind und wenn diese Daten korrekt sind.</p>
+
+      <p>Bitte beachten Sie, dass andere Datenschutzerklärungen oder allgemeine Geschäftsbedingungen, Teilnahmebedingungen und ähnliche Dokumente bestimmte datenschutzrechtliche Themen gesondert regeln können. Diese Datenschutzerklärung ist auf die EU-Datenschutz-Grundverordnung („DSGVO“) und das Schweizer Datenschutzgesetz („DSG“) abgestimmt. Die Anwendung dieser Gesetze hängt jedoch vom jeweiligen Einzelfall ab.</p>
+
+      <p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
+
+      <h2>1 Verantwortlicher</h2>
+
+      <p>Alexander van der Berg ist für die hier beschriebene Datenverarbeitung verantwortlich, sofern im Einzelfall nichts anderes angegeben ist. Bei datenschutzrechtlichen Anliegen können Sie sich unter folgender Kontaktadresse an uns wenden:</p>
+
+      <p>Telefon: +49 40 414 312 151<br>
+      E-Mail: <a href="mailto:alexander@vanderberg.de">alexander@vanderberg.de</a></p>
+
+      <h2>2 Erhebung und Verarbeitung personenbezogener Daten</h2>
+
+      <p>Wir verarbeiten in erster Linie personenbezogene Daten, die wir im Rahmen unserer Geschäftsbeziehung von unseren Kunden und anderen Geschäftspartnern sowie anderen daran beteiligten Personen erhalten, oder die wir beim Betrieb unserer Website(s) von deren Nutzern erheben. Soweit dies zulässig ist, entnehmen wir bestimmte Daten auch aus öffentlich zugänglichen Quellen (z. B. Betreibungsregister, Grundbücher, Handelsregister, Presse und Internet) oder erhalten solche Daten von Behörden und anderen Dritten (z. B. Auskunfteien oder Adressanbieter).</p>
+
+      <p>Über die Daten, die Sie uns direkt mitteilen, hinaus umfassen die Kategorien personenbezogener Daten, die wir von Dritten über Sie erhalten, insbesondere: Informationen aus öffentlichen Registern; Informationen, die wir im Zusammenhang mit behördlichen und rechtlichen Verfahren erlangen; Informationen zu Ihren beruflichen Tätigkeiten und Aufgaben (z. B. um mit Ihrem Arbeitgeber mit Ihrer Unterstützung Transaktionen abschließen und abwickeln zu können); Informationen über Sie aus Korrespondenz und Gesprächen mit Dritten; Bonitätsauskünfte (soweit wir persönlich mit Ihnen Transaktionen abwickeln); Informationen über Sie, die uns von Ihnen nahestehenden Personen (Familie, Berater, gesetzliche Vertreter usw.) mitgeteilt werden, um mit Ihnen Verträge abschließen oder Vereinbarungen mit oder über Sie abschließen bzw. abwickeln zu können (z. B. Referenzen); Ihre Adresse für Lieferungen; Vollmachten; Informationen zur Einhaltung gesetzlicher Anforderungen wie Anti-Geldwäsche und Exportbeschränkungen; Informationen von Banken und Versicherungen (z. B. getätigte Zahlungen, getätigte Käufe); personenbezogene Daten aus Medien und Internet (soweit dies im jeweiligen Einzelfall angemessen ist, z. B. im Rahmen einer Bewerbung, Presseauswertung, Marketing/Vertrieb usw.); Ihre Adressen und gegebenenfalls Interessen sowie sonstige soziodemografische Daten (für Marketingzwecke); Daten im Zusammenhang mit der Nutzung der Website (z. B. IP-Adresse, MAC-Adresse des Smartphones oder Computers, Informationen über Ihr Gerät und Ihre Einstellungen, Cookies, Datum und Uhrzeit des Besuchs, aufgerufene Seiten und Inhalte, genutzte Funktionen, verweisende Website, Standortinformationen).</p>
+
+      <h2>3 Zweck der Datenverarbeitung und Rechtsgrundlagen</h2>
+
+      <p>Wir verwenden die von uns erhobenen personenbezogenen Daten in erster Linie zur Anbahnung und Erfüllung von Verträgen mit unseren Kunden und Geschäftspartnern, insbesondere im Rahmen der folgenden Tätigkeit: Software-Qualitätssicherung und Testing. Im Rahmen dieser Tätigkeit erheben wir personenbezogene Daten für Transaktionen mit unseren Kunden sowie für den Erwerb von Produkten und Dienstleistungen von unseren Lieferanten und Unterauftragnehmern, und zur Erfüllung unserer gesetzlichen Pflichten im In- und Ausland. Wenn Sie für einen solchen Kunden oder Geschäftspartner tätig sind, können Ihre personenbezogenen Daten in dieser Eigenschaft selbstverständlich ebenfalls betroffen sein.</p>
+
+      <p>Darüber hinaus verarbeiten wir Ihre und die Daten anderer Personen, soweit dies zulässig ist und wir es für angemessen erachten, für folgende Zwecke, an denen wir (und manchmal auch Dritte) ein berechtigtes Interesse haben:</p>
+
+      <ul>
+        <li>Angebot und Weiterentwicklung unserer Produkte, Dienstleistungen und Websites, Apps sowie anderer Plattformen, auf denen wir präsent sind;</li>
+        <li>Kommunikation mit Dritten und Bearbeitung ihrer Anfragen (z. B. Stellenbewerbungen, Medienanfragen);</li>
+        <li>Testen und Optimieren von Verfahren zur Bedarfsanalyse für die direkte Kundenansprache sowie Erhebung personenbezogener Daten aus öffentlich zugänglichen Quellen zur Kundengewinnung;</li>
+        <li>Werbung und Marketing (einschließlich der Organisation von Veranstaltungen), sofern Sie der Nutzung Ihrer Daten nicht widersprochen haben (wenn wir Ihnen als bestehendem Kunden Werbung zusenden, können Sie dem jederzeit widersprechen; wir werden Sie dann auf eine Sperrliste für weitere Werbemitteilungen setzen);</li>
+        <li>Markt- und Meinungsforschung, Medienbeobachtung;</li>
+        <li>Geltendmachung rechtlicher Ansprüche und Rechtsverteidigung im Zusammenhang mit rechtlichen Auseinandersetzungen und Behördenverfahren;</li>
+        <li>Vorbeugung und Aufklärung von Straftaten und sonstigem Fehlverhalten (z. B. Durchführung interner Untersuchungen, Datenanalysen zur Betrugsbekämpfung);</li>
+        <li>Gewährleistung des ordnungsgemäßen Betriebs unserer Systeme, insbesondere der IT, unserer Websites, Apps und anderer Plattformen;</li>
+        <li>Videoüberwachung zur Wahrnehmung von Hausrechten sowie andere Maßnahmen zur IT-, Gebäude- und Anlagensicherheit und zum Schutz unserer Mitarbeitenden und anderer Personen sowie uns gehörender oder anvertrauter Vermögenswerte (z. B. Zugangskontrollen, Besucherlisten, Netzwerk- und Mail-Scanner, Telefonaufzeichnungen);</li>
+        <li>Kauf und Verkauf von Geschäftsbereichen, Unternehmen oder Unternehmensteilen und andere gesellschaftsrechtliche Transaktionen sowie die damit verbundene Übertragung personenbezogener Daten, ferner Maßnahmen zur Unternehmensführung und, soweit erforderlich, zur Einhaltung gesetzlicher und regulatorischer Vorgaben sowie unserer internen Vorschriften.</li>
+      </ul>
+
+      <h2>4 Cookies / Tracking und andere Techniken zur Nutzung unserer Website</h2>
+
+      <p>Auf unseren Website(s) verwenden wir in der Regel „Cookies“ und ähnliche Techniken, die eine Identifizierung Ihres Browsers oder Geräts ermöglichen. Ein Cookie ist eine kleine Textdatei, die an Ihren Computer gesendet und beim Besuch unserer Website(s) automatisch vom Webbrowser auf Ihrem Computer oder Mobilgerät gespeichert wird. Wenn Sie unsere Website erneut besuchen, können wir Sie möglicherweise wiedererkennen, auch wenn wir Ihre Identität nicht kennen.</p>
+
+      <p>Neben Cookies, die nur für die Dauer einer Sitzung verwendet und nach Ihrem Besuch auf der Website gelöscht werden („Session-Cookies“), können wir Cookies verwenden, um Benutzerkonfigurationen und andere Informationen für einen bestimmten Zeitraum (z. B. zwei Jahre) zu speichern („permanente Cookies“).</p>
+
+      <p>Ungeachtet des Vorstehenden können Sie Ihre Browsereinstellungen so konfigurieren, dass Cookies abgelehnt, nur für eine Sitzung gespeichert oder vorzeitig gelöscht werden. Die meisten Browser sind standardmäßig so eingestellt, dass sie Cookies akzeptieren. Wir verwenden permanente Cookies, um Benutzerkonfigurationen zu speichern (z. B. Sprache, automatische Anmeldung), um zu verstehen, wie Sie unsere Dienste und Inhalte nutzen, und um Ihnen individuelle Angebote und Werbung anzuzeigen (was auch auf Websites anderer Unternehmen geschehen kann; sollte uns Ihre Identität bekannt sein, werden solche Unternehmen Ihre Identität nicht von uns erfahren; sie werden lediglich wissen, dass derselbe Nutzer, der ihre Website besucht, zuvor eine bestimmte Website besucht hat). Bestimmte Cookies werden Ihnen von uns gesendet, andere von Geschäftspartnern, mit denen wir zusammenarbeiten.</p>
+
+      <p>Wenn Sie Cookies blockieren, stehen Ihnen bestimmte Funktionen (z. B. Spracheinstellungen, Warenkorb und Bestellvorgänge) möglicherweise nicht mehr zur Verfügung.</p>
+
+      <p>Nach geltendem Recht können wir in unsere Newsletter und andere Marketing-E-Mails sichtbare und unsichtbare Bilddateien einbetten. Werden solche Bilddateien von unseren Servern abgerufen, können wir feststellen, ob und wann Sie die E-Mail geöffnet haben, sodass wir messen und besser verstehen können, wie Sie unsere Angebote nutzen, und diese entsprechend anpassen können. Sie können dies in Ihrem E-Mail-Programm deaktivieren, was üblicherweise eine Standardeinstellung ist.</p>
+
+      <p>Durch die Nutzung unserer Website(s) und die Zustimmung zum Erhalt von Newslettern und anderen Marketing-E-Mails erklären Sie sich mit der Verwendung solcher Techniken durch uns einverstanden. Wenn Sie widersprechen möchten, müssen Sie Ihren Browser oder Ihr E-Mail-Programm entsprechend konfigurieren.</p>
+
+      <p>Diese Website wird auf GitHub Pages (GitHub, Inc., eine Tochtergesellschaft der Microsoft Corporation, Vereinigte Staaten) gehostet. GitHub Pages verarbeitet im Rahmen des normalen Hostingbetriebs IP-Adressen von Besuchern sowie Anfrage-Metadaten (z. B. Browsertyp, verweisende URL sowie Datum und Uhrzeit des Besuchs) in Server-Logs. GitHub fungiert dabei als Auftragsverarbeiter in unserem Auftrag. Für Übermittlungen in die Vereinigten Staaten stützen wir uns auf die in Abschnitt 6 genannten Standardvertragsklauseln. Für die Verarbeitung Ihrer Daten durch GitHub gilt zudem die eigene Datenschutzerklärung von GitHub.</p>
+
+      <p>Zur Verarbeitung von Kontaktformular-Einsendungen auf unserer Website nutzen wir Formspree (Formspree, Inc., Vereinigte Staaten). Die über das Kontaktformular übermittelten Daten (z. B. Ihr Name, Ihre E-Mail-Adresse und Ihre Nachricht) werden an Formspree übermittelt und dort gespeichert. Formspree fungiert dabei als Auftragsverarbeiter in unserem Auftrag. Für Übermittlungen in die Vereinigten Staaten stützen wir uns auf die in Abschnitt 6 genannten Standardvertragsklauseln. Für die Verarbeitung Ihrer Daten durch Formspree gilt zudem die eigene Datenschutzerklärung von Formspree.</p>
+
+      <h2>5 Weitergabe von Daten an Dritte</h2>
+
+      <p>Im Rahmen unserer Geschäftstätigkeit und in Übereinstimmung mit den in Abschnitt 3 dargelegten Zwecken der Datenverarbeitung können wir Daten an Dritte weitergeben, soweit eine solche Weitergabe zulässig ist und wir sie für angemessen erachten, damit diese die Daten für uns oder gegebenenfalls für eigene Zwecke verarbeiten. Insbesondere können folgende Empfängerkategorien betroffen sein:</p>
+
+      <ul>
+        <li>unsere Dienstleister (z. B. Banken oder Versicherungen) einschließlich Auftragsverarbeitern (z. B. IT-Dienstleister);</li>
+        <li>Händler, Lieferanten, Unterauftragnehmer und andere Geschäftspartner;</li>
+        <li>Kunden;</li>
+        <li>in- und ausländische Behörden oder Gerichte;</li>
+        <li>die Medien;</li>
+        <li>die Öffentlichkeit, einschließlich Nutzern unserer Websites und sozialer Medien;</li>
+        <li>Wettbewerber, Branchenorganisationen, Verbände, Organisationen und andere Gremien;</li>
+        <li>Erwerber oder an einem Erwerb von Geschäftsbereichen interessierte Parteien;</li>
+        <li>andere Parteien in potenziellen oder anhängigen Rechtsstreitigkeiten;</li>
+      </ul>
+
+      <p>zusammen „Empfänger”.</p>
+
+      <p>Wenn wir Daten an Dritte weitergeben, halten wir die einschlägigen gesetzlichen Anforderungen ein und schließen insbesondere Auftragsverarbeitungsverträge oder ähnliche Vereinbarungen mit den jeweiligen Empfängern ab, um Ihre Daten zu schützen.</p>
+
+      <h2>6 Datenübermittlung ins Ausland</h2>
+
+      <p>Wir können Daten an Personen, Behörden, Organisationen, Unternehmen oder andere Stellen im Ausland weitergeben. Insbesondere können wir personenbezogene Daten in alle Länder übermitteln, in denen unsere Dienstleister personenbezogene Daten verarbeiten.</p>
+
+      <p>Befindet sich ein Empfänger in einem Land ohne angemessenes gesetzliches Datenschutzniveau, verpflichten wir den Empfänger vertraglich zur Einhaltung des anwendbaren Datenschutzrechts (zu diesem Zweck verwenden wir die überarbeiteten Standardvertragsklauseln der Europäischen Kommission, die hier abrufbar sind: <a href="https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?" target="_blank" rel="noopener noreferrer">https://eur-lex.europa.eu/eli/dec_impl/2021/914/oj?</a>), sofern der Empfänger nicht bereits einem rechtlich anerkannten Regelwerk zur Gewährleistung des Datenschutzes unterliegt und wir uns nicht auf eine Ausnahmebestimmung stützen können. Eine Ausnahme kann insbesondere bei Rechtsverfahren im Ausland gelten, aber auch in Fällen überwiegender öffentlicher Interessen oder wenn die Vertragserfüllung eine solche Offenlegung erfordert, wenn Sie Ihre Einwilligung erteilt haben oder wenn es sich um von Ihnen allgemein zugänglich gemachte Daten handelt, deren Verarbeitung Sie nicht widersprochen haben.</p>
+
+      <h2>7 Dauer der Aufbewahrung personenbezogener Daten</h2>
+
+      <p>Wir verarbeiten und speichern Ihre Daten, solange dies zur Erfüllung unserer vertraglichen und gesetzlichen Pflichten oder anderweitig zur Verfolgung der mit der Verarbeitung verfolgten Zwecke erforderlich ist, d. h. beispielsweise für die gesamte Dauer der Geschäftsbeziehung (von der Anbahnung über die Abwicklung bis zur Beendigung eines Vertrags) und darüber hinaus gemäß den gesetzlichen Aufbewahrungs- und Dokumentationspflichten. In diesem Zusammenhang können wir personenbezogene Daten für den Zeitraum aufbewahren, in dem Ansprüche gegen unser Unternehmen geltend gemacht werden können, sowie soweit wir anderweitig gesetzlich dazu verpflichtet sind oder berechtigte Geschäftsinteressen dies erfordern (z. B. zu Beweis- und Dokumentationszwecken). Sobald Ihre Daten für die oben genannten Zwecke nicht mehr benötigt werden, werden sie grundsätzlich und soweit möglich gelöscht oder anonymisiert. Für Betriebsdaten (z. B. Systemprotokolle und Logs) gelten in der Regel kürzere Aufbewahrungsfristen von zwölf Monaten oder weniger.</p>
+
+      <h2>8 Datensicherheit</h2>
+
+      <p>Wir treffen angemessene technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten vor unbefugtem Zugriff und Missbrauch zu schützen.</p>
+
+      <p>Dazu gehören folgende Maßnahmen: Wir orientieren uns an den Best Practices der Datenverarbeitung und bemühen uns nach besten Kräften, stets aktuelle Standards für eine sichere Datenverarbeitung und -speicherung einzuhalten.</p>
+
+      <p>Wir berücksichtigen den Schutz personenbezogener Daten bereits bei der Konzeption oder Auswahl von Hardware, Software oder Verfahren durch geeignete technische und organisatorische Maßnahmen (Datenschutz durch Technikgestaltung).</p>
+
+      <p>Darüber hinaus gewährleisten wir datenschutzfreundliche Voreinstellungen (Datenschutz durch datenschutzfreundliche Voreinstellungen).</p>
+
+      <h2>9 Pflicht zur Bereitstellung personenbezogener Daten</h2>
+
+      <p>Im Rahmen unserer Geschäftsbeziehung müssen Sie diejenigen personenbezogenen Daten bereitstellen, die für die Aufnahme und Durchführung einer Geschäftsbeziehung und die Erfüllung der damit verbundenen vertraglichen Pflichten erforderlich sind (eine gesetzliche Pflicht zur Datenbereitstellung gegenüber uns besteht in der Regel nicht). Ohne diese Daten werden wir in der Regel nicht in der Lage sein, einen Vertrag mit Ihnen (oder der juristischen Person oder Person, die Sie vertreten) abzuschließen oder zu erfüllen. Auch unsere Websites können nicht genutzt werden, wenn bestimmte Informationen zur Sicherung des Datenverkehrs (z. B. die IP-Adresse) nicht preisgegeben werden.</p>
+
+      <h2>10 Profiling und automatisierte Einzelentscheidungen</h2>
+
+      <p>Wir können Ihre Daten teilweise automatisiert verarbeiten, um bestimmte persönliche Aspekte zu bewerten (Profiling). Insbesondere ermöglicht uns Profiling, Sie genauer über möglicherweise für Sie relevante Produkte zu informieren und zu beraten. Zu diesem Zweck können wir Auswertungstools einsetzen, die es uns ermöglichen, bedarfsgerecht mit Ihnen zu kommunizieren und Werbung zu schalten, einschließlich Markt- und Meinungsforschung. Bei der Anbahnung und Durchführung einer Geschäftsbeziehung setzen wir grundsätzlich keine vollständig automatisierten Einzelentscheidungen (wie nach Art. 21 DSG bzw. Art. 22 DSGVO) ein. Sollten wir solche Verfahren in bestimmten Fällen einsetzen, werden wir Sie hierüber gesondert informieren und Sie, soweit gesetzlich vorgeschrieben, über Ihre diesbezüglichen Rechte belehren.</p>
+
+      <h2>11 Ihre Rechte</h2>
+
+      <p>Nach Maßgabe und soweit vom anwendbaren Recht vorgesehen (wie im Falle der Anwendbarkeit der DSGVO) stehen Ihnen folgende Rechte zu:</p>
+
+      <ul>
+        <li>das Recht, bei uns Auskunft darüber zu verlangen, ob und welche Daten wir über Sie verarbeiten;</li>
+        <li>das Recht, uns zur Berichtigung unrichtiger Daten aufzufordern;</li>
+        <li>das Recht, die Löschung von Daten zu verlangen;</li>
+        <li>das Recht, die Herausgabe bestimmter personenbezogener Daten in einem gängigen elektronischen Format oder deren Übertragung an einen anderen Verantwortlichen zu verlangen;</li>
+        <li>das Recht, eine Einwilligung zu widerrufen, soweit unsere Verarbeitung auf Ihrer Einwilligung beruht;</li>
+        <li>das Recht, auf Anfrage weitere Informationen zu erhalten, die für die Ausübung dieser Rechte erforderlich sind;</li>
+        <li>das Recht, im Falle automatisierter Einzelentscheidungen (Abschnitt 10) Ihren Standpunkt darzulegen und zu verlangen, dass die Entscheidung von einer natürlichen Person überprüft wird.</li>
+      </ul>
+
+      <p>Bitte beachten Sie jedoch, dass wir uns das Recht vorbehalten, die gesetzlich vorgesehenen Einschränkungen auf unserer Seite geltend zu machen, beispielsweise wenn wir verpflichtet sind, bestimmte Daten aufzubewahren oder zu verarbeiten, ein überwiegendes Interesse daran haben (soweit wir uns darauf berufen können) oder diese für die Geltendmachung von Ansprüchen benötigen. Entstehen Ihnen dadurch Kosten, werden wir Sie im Voraus darüber informieren. Auf die Möglichkeit des Widerrufs Ihrer Einwilligung haben wir Sie bereits in Abschnitt 3 hingewiesen. Bitte beachten Sie, dass die Ausübung dieser Rechte vertraglichen Vereinbarungen zuwiderlaufen und Folgen haben kann, wie z. B. die vorzeitige Beendigung des Vertrags oder das Entstehen von Kosten. Wir werden Sie hierüber im Voraus informieren, sofern dies nicht bereits im Vertrag festgelegt ist.</p>
+
+      <p>Die Ausübung dieser Rechte setzt in der Regel voraus, dass Sie Ihre Identität eindeutig nachweisen (z. B. durch eine Kopie Ihres Personalausweises, sofern Ihre Identität nicht anderweitig eindeutig feststeht oder verifiziert werden kann). Zur Ausübung Ihrer Rechte können Sie sich an die in Abschnitt 1 angegebene Adresse wenden.</p>
+
+      <p>Jede betroffene Person hat außerdem das Recht, ihre Ansprüche auf dem Rechtsweg geltend zu machen oder eine Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde einzureichen. Die zuständige Datenschutzaufsichtsbehörde in der Schweiz ist der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (<a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener noreferrer">www.edoeb.admin.ch</a>).</p>
+
+      <h2>12 Änderungen dieser Datenschutzerklärung</h2>
+
+      <p>Wir können diese Datenschutzerklärung jederzeit ohne Vorankündigung ändern. Es gilt die jeweils aktuelle, auf unserer Website veröffentlichte Fassung. Sofern diese Datenschutzerklärung Bestandteil einer Vereinbarung mit Ihnen ist, werden wir Sie im Falle einer Änderung per E-Mail oder auf andere geeignete Weise benachrichtigen.</p>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p>© 2025–2026 Alexander van der Berg · Zürich, Schweiz</p>
+      <nav class="footer-links" aria-label="Footer-Navigation">
+        <a href="mailto:alexander@vanderberg.de">E-Mail</a>
+        <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/avanderberg" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="/privacy-policy">Datenschutzerklärung</a>
+        <a href="#top">Nach oben ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>

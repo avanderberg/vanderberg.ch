@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Primary Meta Tags -->
+  <title>Alexander van der Berg – ISTQB Certified Tester | Software Quality Assurance Zürich</title>
+  <meta name="description" content="Erfahrener Software Quality Assurance Experte in Zürich. 15+ Jahre Erfahrung, ISTQB und OSCP+ zertifiziert. Funktionstests, Security Testing, Test Automation.">
+  <meta name="keywords" content="Software Quality Assurance, ISTQB Tester, Softwaretest, Zürich, Test Automation, Security Testing, Penetration Testing, OSCP, BSCP, CISSP, Contractor">
+  <meta name="author" content="Alexander van der Berg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.vanderberg.ch/">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.vanderberg.ch/">
+  <meta property="og:title" content="Alexander van der Berg – ISTQB Certified Tester | Software Quality Assurance Zürich">
+  <meta property="og:description" content="Erfahrener Software Quality Assurance Experte in Zürich. 15+ Jahre Erfahrung, ISTQB und OSCP+ zertifiziert. Funktionstests, Security Testing, Test Automation.">
+  <meta property="og:image" content="https://www.vanderberg.ch/images/portrait.webp">
+  <meta property="og:locale" content="de_CH">
+  <meta property="og:site_name" content="Alexander van der Berg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alexander van der Berg – ISTQB Certified Tester">
+  <meta name="twitter:description" content="15+ Jahre Software QA. ISTQB, OSCP+, CISSP Associate. Für Projekte in Zürich und remote.">
+  <meta name="twitter:image" content="https://www.vanderberg.ch/images/portrait.webp">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alexander van der Berg",
+    "jobTitle": "Software Quality Assurance Engineer",
+    "description": "ISTQB Certified Tester mit 15+ Jahren Erfahrung in Software QA, Test Automation und Security Testing",
+    "url": "https://www.vanderberg.ch",
+    "image": "https://www.vanderberg.ch/images/portrait.webp",
+    "email": "alexander@vanderberg.de",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/avanderberg/",
+      "https://github.com/avanderberg"
+    ],
+    "knowsLanguage": ["de", "en", "es"],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "ISTQB Certified Tester Foundation Level (CTFL)"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "OffSec Certified Professional+ (OSCP+)"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "PortSwigger Burp Suite Certified Practitioner (BSCP)"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "ISC2 CISSP Associate"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===== CSS RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-primary: #1a1a2e;
+      --color-accent: #e8a838;
+      --color-accent-dark: #c48a1f;
+      --color-text: #222;
+      --color-text-light: #555;
+      --color-bg: #fff;
+      --color-bg-soft: #f8f7f4;
+      --color-border: #e0ddd6;
+      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --max-width: 1100px;
+      --section-pad: 5rem 1.5rem;
+      --radius: 8px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { color: var(--color-accent-dark); }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.25;
+      color: var(--color-primary);
+    }
+
+    h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+    .btn {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--color-accent-dark); color: var(--color-primary); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+    }
+    .btn-outline:hover { background: var(--color-accent); color: var(--color-primary); }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(26, 26, 46, 0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--color-accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--color-accent); }
+    .nav-links .nav-cta { color: var(--color-accent); font-weight: 700; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--color-primary);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .hero-text h1 span { color: var(--color-accent); }
+
+    .hero-text .subtitle {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      background: rgba(232,168,56,0.15);
+      border: 1px solid rgba(232,168,56,0.4);
+      color: var(--color-accent);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: 340px;
+      height: 440px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border: 3px solid rgba(232,168,56,0.3);
+    }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--color-accent);
+      padding: 1rem 1.5rem;
+    }
+
+    .trust-bar-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .trust-item {
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ===== ABOUT ===== */
+    #about { padding: var(--section-pad); background: var(--color-bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .about-text p {
+      color: var(--color-text-light);
+      margin-bottom: 1rem;
+    }
+
+    .certifications {
+      margin-top: 1.5rem;
+      columns: 2;
+      column-gap: 1.5rem;
+    }
+
+    .cert-item {
+      break-inside: avoid;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .cert-item::before {
+      content: "✓";
+      color: var(--color-accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* ===== SERVICES ===== */
+    #services { padding: var(--section-pad); background: var(--color-bg-soft); }
+
+    .services-intro {
+      max-width: 650px;
+      margin-bottom: 3rem;
+    }
+    .services-intro p { color: var(--color-text-light); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+    }
+
+    .service-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .service-card p { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.5; }
+
+    /* ===== WHAT SETS ME APART ===== */
+    #apart { padding: var(--section-pad); background: var(--color-primary); }
+
+    #apart .section-label { color: var(--color-accent); }
+    #apart h2 { color: #fff; }
+
+    .apart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .apart-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .apart-card h3 { color: var(--color-accent); font-size: 1rem; margin-bottom: 0.5rem; }
+    .apart-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ===== PROJECTS ===== */
+    #projects { padding: var(--section-pad); background: var(--color-bg); }
+
+    .projects-intro { color: var(--color-text-light); margin-bottom: 2.5rem; max-width: 650px; }
+
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border-left: 3px solid var(--color-accent);
+      padding: 1.25rem 1.5rem;
+      background: var(--color-bg-soft);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .project-sector {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+
+    .project-card ul {
+      padding-left: 1.2rem;
+      font-size: 0.88rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    .project-tech {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials { padding: var(--section-pad); background: var(--color-bg-soft); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.25rem;
+      font-size: 5rem;
+      color: var(--color-accent);
+      opacity: 0.3;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      font-weight: 600;
+    }
+
+    /* ===== FAQ ===== */
+    #faq { padding: var(--section-pad); background: var(--color-bg); }
+
+    .faq-list { max-width: 740px; margin-top: 2rem; }
+
+    details {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    details:first-of-type { border-top: 1px solid var(--color-border); }
+
+    summary {
+      padding: 1.1rem 0;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    details p {
+      padding-bottom: 1.1rem;
+      font-size: 0.92rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { padding: var(--section-pad); background: var(--color-primary); }
+
+    #contact .section-label { color: var(--color-accent); }
+    #contact h2 { color: #fff; margin-bottom: 0.5rem; }
+    #contact .contact-intro { color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; max-width: 560px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .contact-info p { margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.7; }
+
+    .contact-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+    }
+    .contact-link:hover { color: var(--color-accent); }
+
+    .contact-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 0.7rem 1rem;
+      color: #fff;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .form-group select option { background: var(--color-primary); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.75rem;
+    }
+
+    #form-success {
+      display: none;
+      background: rgba(232,168,56,0.15);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      color: var(--color-accent);
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--color-accent); }
+
+    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(26,26,46,0.98);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav { position: sticky; }
+
+      /* Hero */
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+        padding: 3rem 1.5rem;
+      }
+
+      .hero-image { order: -1; }
+
+      .hero-photo { width: 220px; height: 280px; }
+
+      .hero-badges { justify-content: center; }
+      .hero-actions { justify-content: center; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .certifications { columns: 1; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      :root { --section-pad: 3.5rem 1.25rem; }
+      .hero-text h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">van der <span>Berg</span></a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#testimonials">Referenzen</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="top" class="hero" aria-label="Einleitung">
+    <div class="hero-bg" role="presentation" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="section-label">Software Quality Assurance</p>
+        <h1>Ihr Produkt verdient <span>fehlerfreien</span> Code.</h1>
+        <p class="subtitle">
+          Mit 15+ Jahren Erfahrung finde ich Fehler, bevor Ihre Kunden es tun –
+          funktional, sicherheitstechnisch und auf allen Geräten.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">ISTQB CTFL</span>
+          <span class="badge">OSCP+</span>
+          <span class="badge">CISSP Associate</span>
+          <span class="badge">15+ Jahre Erfahrung</span>
+          <span class="badge">Zürich & Remote</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Jetzt Kontakt aufnehmen</a>
+          <a href="#services" class="btn btn-outline">Leistungen ansehen</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="images/portrait.webp"
+          alt="Alexander van der Berg, ISTQB Certified Tester in Zürich"
+          class="hero-photo"
+          width="340"
+          height="507"
+          loading="eager"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" aria-label="Kernkompetenzen">
+    <div class="trust-bar-inner">
+      <span class="trust-item">✓ Ab morgen in Ihrem Büro, falls verfügbar</span>
+      <span class="trust-item">✓ Ab einer Woche Projektlaufzeit</span>
+      <span class="trust-item">✓ On-Site in Zürich & Remote</span>
+      <span class="trust-item">✓ Deutsch · Englisch · Spanisch</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img
+            src="images/photo-on-computer.webp"
+            alt="Alexander van der Berg bei der Arbeit"
+            class="about-photo"
+            width="900"
+            height="1200"
+            loading="lazy"
+          >
+        </div>
+        <div class="about-text">
+          <p class="section-label">Über mich</p>
+          <h2 id="about-heading">Ich bin Alexander.</h2>
+          <p>
+            Als erfahrener Software-QA-Engineer mit Sitz in Zürich bin ich bestens aufgestellt,
+            um Ihre Website, App oder API auf Hochglanz zu bringen – frei von offensichtlichen
+            und versteckten Fehlern. Ich führe Ihr Produkt durch eine Reihe sequenzieller,
+            gründlicher Tests, damit es bei jedem Release überzeugt.
+          </p>
+          <p>
+            Softwarequalitätssicherung ist der eine Schritt bei der Produktentwicklung, den
+            Sie sich nicht leisten können zu überspringen – stellen Sie sich vor, wie Sie
+            sich fühlen, wenn Sie auf einen defekten Link klicken.
+          </p>
+          <p>
+            Aufgewachsen in Hamburg, lebe ich seit 2022 in Zürich. Ich spreche fliessend
+            Deutsch, Englisch und Spanisch und bin sowohl vor Ort in der Schweiz als auch
+            remote verfügbar.
+          </p>
+
+          <h3 style="margin-top: 1.75rem; margin-bottom: 0.75rem;">Zertifizierungen &amp; Ausbildung</h3>
+          <div class="certifications">
+            <span class="cert-item">ISTQB Certified Tester (CTFL)</span>
+            <span class="cert-item">Certified Professional for Requirements Engineering (CPRE)</span>
+            <span class="cert-item">Certified ScrumMaster (CSM)</span>
+            <span class="cert-item">Certified Scrum Product Owner (CSPO)</span>
+            <span class="cert-item">SAFe 4 Certified Practitioner</span>
+            <span class="cert-item">OffSec Certified Professional+ (OSCP+)</span>
+            <span class="cert-item">Cyber Security Specialist mit eidgenössischem Fachausweis</span>
+            <span class="cert-item">ISC2 CISSP Associate</span>
+            <span class="cert-item">Burp Suite Certified Practitioner (BSCP)</span>
+            <span class="cert-item">Diplom Wirtschaftsinformatiker (FH)</span>
+          </div>
+
+          <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn-Profil</a>
+            <a href="#contact" class="btn btn-outline">Kontakt aufnehmen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="services-intro">
+        <p class="section-label">Leistungen</p>
+        <h2 id="services-heading">Meine Leistungen</h2>
+        <p>Von explorativem Testen über Testautomatisierung bis hin zu Penetrationstests biete ich ein breites
+        Spektrum an QA-Dienstleistungen, massgeschneidert für Ihr Projekt.</p>
+      </div>
+      <div class="services-grid">
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🔍</div>
+          <h3>Exploratives Testen</h3>
+          <p>Ich analysiere die Software ohne vordefinierte Testfälle und decke unerwartete Fehler auf, die skriptbasierte Tests übersehen.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">📱</div>
+          <h3>Mobile App Testing</h3>
+          <p>Tests auf realen mobilen Geräten unter verschiedenen Netzwerkbedingungen für iOS und Android.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🤖</div>
+          <h3>KI-gestütztes Testen</h3>
+          <p>Einsatz von KI zur Unterstützung und Erweiterung Ihrer Teststrategie für schnellere und umfangreichere Ergebnisse.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">⚡</div>
+          <h3>Test Automation</h3>
+          <p>Automatisierte Tests reduzieren den manuellen Aufwand und ermöglichen kontinuierliche Qualitätssicherung im CI/CD-Prozess.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🔐</div>
+          <h3>Security Testing</h3>
+          <p>Identifizierung von Sicherheitslücken in Ihrer Anwendung, Hardware und Netzwerkinfrastruktur (Penetrationstests).</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">📊</div>
+          <h3>Performance Testing</h3>
+          <p>Bewertung des Softwareverhaltens unter verschiedenen Lastszenarien und Stressbedingungen.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🔄</div>
+          <h3>Agile &amp; Shift-Left Testing</h3>
+          <p>Intensive Zusammenarbeit von Entwicklung und QA zur frühzeitigen Fehlererkennung im agilen Umfeld.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">💥</div>
+          <h3>Chaos &amp; Resilience Testing</h3>
+          <p>Gezielte Fehler und Störungen testen die Robustheit und Ausfallsicherheit des Gesamtsystems.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">♿</div>
+          <h3>Accessibility Testing</h3>
+          <p>Sicherstellung, dass Ihre Software von Menschen mit Behinderungen barrierefrei genutzt werden kann.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">📋</div>
+          <h3>Test Management</h3>
+          <p>Koordination und Steuerung des gesamten Testprozesses von der Planung bis zur Freigabe.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🎯</div>
+          <h3>QA Maturity Assessment</h3>
+          <p>Bewertung des aktuellen QA-Reifegrads Ihres Unternehmens mit konkreten Verbesserungsempfehlungen.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🗄️</div>
+          <h3>Test Data Management</h3>
+          <p>Erstellung und Verwaltung qualitativ hochwertiger Testdaten für reproduzierbare, verlässliche Tests.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT SETS ME APART -->
+  <section id="apart" aria-labelledby="apart-heading">
+    <div class="container">
+      <p class="section-label">Warum ich?</p>
+      <h2 id="apart-heading">Was mich auszeichnet</h2>
+      <div class="apart-grid">
+
+        <div class="apart-card">
+          <h3>Bewährte Erfolgsbilanz</h3>
+          <p>Langjährige Erfahrung in Banken, Big&#8209;Data&#8209;Unternehmen, Medienunternehmen und Start&#8209;ups.</p>
+        </div>
+
+        <div class="apart-card">
+          <h3>All-in-One-Expertise</h3>
+          <p>Funktionale Tests, Layout-Tests und Sicherheitstests (Penetrationstests) aus einer Hand, ohne Reibungsverluste.</p>
+        </div>
+
+        <div class="apart-card">
+          <h3>Kurzfristig im Büro</h3>
+          <p>Falls verfügbar, auch für besonders kurze oder lange Projekte.</p>
+        </div>
+
+        <div class="apart-card">
+          <h3>Ruhig unter Druck</h3>
+          <p>Zuverlässig auch in schwierigen Situationen und bei überfälligen Releases unter Zeitdruck. Klarer Kopf garantiert.</p>
+        </div>
+
+        <div class="apart-card">
+          <h3>Agile Expertise</h3>
+          <p>Spezialisiert auf agiles Testen von User Stories und End-to-End-/UAT-Tests für grosse Releases.</p>
+        </div>
+
+        <div class="apart-card">
+          <h3>Mehrsprachig &amp; flexibel</h3>
+          <p>Deutsch, Englisch und Spanisch fliessend. Vor Ort in der Schweiz und Deutschland sowie remote tätig.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <p class="section-label">Erfahrung</p>
+      <h2 id="projects-heading">Ausgewählte Projekte</h2>
+      <p class="projects-intro">
+        Meine Erfahrung umfasst eine lange Geschichte von Software-QA-Projekten in Banken,
+        Big&#8209;Data&#8209;Unternehmen und Start&#8209;ups. Meine letzten Projekte waren:
+      </p>
+      <div class="projects-list">
+
+        <article class="project-card">
+          <p class="project-sector">Banking</p>
+          <h3>Mobile Banking &amp; Web-App</h3>
+          <ul>
+            <li>Test-Design, Test und Test-Automation von Android- und iOS-Apps</li>
+            <li>Online-Banking-Webanwendung</li>
+            <li>Führung und Mentoring von Junior QA Engineers</li>
+            <li>Verantwortlich für finale Release-Freigabe</li>
+            <li>Debugging komplexer Systemfehler</li>
+          </ul>
+          <p class="project-tech">JavaScript · Cypress · Detox · Xcode · Android Studio</p>
+        </article>
+
+        <article class="project-card">
+          <p class="project-sector">Big Data / Marktforschung</p>
+          <h3>Big-Data-Analyseplattform</h3>
+          <ul>
+            <li>Testkonzeption, Test und Test-Automation von Web-Applikationen</li>
+            <li>Konfiguration und Administration der CI/CD-Pipeline</li>
+            <li>Code Review automatisierter Tests</li>
+          </ul>
+          <p class="project-tech">Protractor · Cucumber BDD · Selenium WebDriver · TypeScript</p>
+        </article>
+
+        <article class="project-card">
+          <p class="project-sector">Medien &amp; E-Commerce</p>
+          <h3>Mobile App &amp; Payment-Systeme</h3>
+          <ul>
+            <li>Beratung zur Auswahl von Test-Tools</li>
+            <li>Test und Test-Automation von Android- und iOS-Apps</li>
+            <li>Test-Design und Automation mobiler Webseiten</li>
+            <li>Testkonzeption eines Online-Zahlungssystems</li>
+          </ul>
+          <p class="project-tech">Robot Framework · Cucumber BDD · Java · Selenium · Xcode · Ruby · Sauce Labs</p>
+        </article>
+
+      </div>
+      <p style="margin-top: 1.5rem; color: var(--color-text-light); font-size: 0.9rem;">
+        Weitere Projekte seit 2010.
+        <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer">Vollständiges Profil auf LinkedIn →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <p class="section-label">Referenzen</p>
+      <h2 id="testimonials-heading">Was Kunden sagen</h2>
+      <div class="testimonials-grid">
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-text">
+            "Herr van der Berg arbeitet auch in schwierigen Situationen und unter Zeitdruck absolut
+            zuverlässig, behielt dabei einen klaren Kopf und hielt Terminvorgaben stets ein."
+          </p>
+          <footer class="testimonial-author">Leiter Development Operations</footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-text">
+            "Wir lernten Herrn van der Berg als einen sehr zuverlässigen Mitarbeiter kennen.
+            Die ihm gestellten Aufgaben erledigte er stets zu unserer vollsten Zufriedenheit."
+          </p>
+          <footer class="testimonial-author">Geschäftsführer</footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-text">
+            "Herr van der Berg besitzt ein äusserst fundiertes und breites Fachwissen in allen
+            Bereichen der Software-QA. Hinzu kommt seine sehr gute Kenntnis agiler Entwicklungsprozesse."
+          </p>
+          <footer class="testimonial-author">IT-Leiter</footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <p class="testimonial-text">
+            "Herr van der Berg besitzt umfangreiche Fachkenntnisse, eine sehr zielstrebige und
+            umsichtige Arbeitsweise sowie ein hohes Mass an Selbständigkeit."
+          </p>
+          <footer class="testimonial-author">Kaufmännischer Leiter</footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h2 id="faq-heading">Ihre Fragen, beantwortet</h2>
+      <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Wie finden wir heraus, welche Leistung für unser Projekt geeignet ist?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Jedes Engagement beginnt mit einem unverbindlichen Erstgespräch, in dem ich Ihre Ziele,
+            Zeitpläne und Rahmenbedingungen kennenlerne. Anschliessend erstelle ich ein massgeschneidertes
+            Angebot mit dem effektivsten Vorgehen.</span>
+          </p>
+        </details>
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Arbeiten Sie auch mit Privatpersonen?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Nein, ich konzentriere mich ausschliesslich auf Geschäftskunden (B2B).</span>
+          </p>
+        </details>
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Wie funktioniert die Abrechnung?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Die Abrechnung erfolgt über die Lohnabrechnung als Contractor (z. B. das PayrollPlus Freelancer-Modell):
+            Ich bin Angestellter, Sie als Kunde erhalten eine monatliche Rechnung. Kein Risiko einer
+            Scheinselbständigkeit.</span>
+          </p>
+        </details>
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Sind Wochenendeinsätze möglich?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Ja, auch Wochenendeinsätze sind möglich.</span>
+          </p>
+        </details>
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Welche Mindestanforderungen gelten für ein Projekt?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Die Mindestprojektdauer beträgt eine Woche. Tagesbuchungen sind ebenfalls akzeptabel,
+            sofern sie planbar sind.</span>
+          </p>
+        </details>
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">In welchen Regionen arbeiten Sie?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Vor Ort in Zürich und Umgebung, andere Standorte sind remote möglich. Gelegentliche Reisen
+            nach Deutschland sind ebenfalls möglich.</span>
+          </p>
+        </details>
+
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">Wie schnell können Sie starten?</summary>
+          <p itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+            <span itemprop="text">Wenn mein Zeitplan es erlaubt, kann ich bereits morgen bei Ihnen vor Ort sein.</span>
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <p class="section-label">Kontakt</p>
+      <h2 id="contact-heading">Bereit für fehlerfreie Software?</h2>
+      <p class="contact-intro">
+        Kontaktieren Sie mich noch heute für ein kostenloses Erstgespräch und erfahren Sie,
+        wie meine Testservices Ihr Produkt für den Launch oder ein bevorstehendes Release polieren.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>
+            <strong style="color:#fff;">Präzision und Qualitätsarbeit, mit Stolz und Leidenschaft ausgeführt.</strong>
+            Nichts bereitet mir mehr Freude als ein reibungslos laufendes Produkt.
+          </p>
+          <p>
+            Starten Sie morgen? Etwas über das Wochenende fertigstellen? Ein besonders
+            kurzes oder langes Projekt? Ich mag abwechslungsreiche und herausfordernde Aufgaben –
+            genau deshalb arbeite ich als Contractor.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:alexander@vanderberg.de" class="contact-link">
+              <span aria-hidden="true">✉️</span>
+              alexander@vanderberg.de
+            </a>
+            <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span aria-hidden="true">💼</span>
+              LinkedIn: avanderberg
+            </a>
+            <a href="https://github.com/avanderberg" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span aria-hidden="true">🐙</span>
+              GitHub: avanderberg
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <!-- Formspree endpoint – replace YOUR_FORM_ID with your Formspree form ID -->
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/mykbggzo"
+            method="POST"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">Vorname *</label>
+                <input type="text" id="first-name" name="first_name" required placeholder="Max">
+              </div>
+              <div class="form-group">
+                <label for="last-name">Nachname *</label>
+                <input type="text" id="last-name" name="last_name" required placeholder="Mustermann">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail-Adresse *</label>
+              <input type="email" id="email" name="email" required placeholder="max@unternehmen.ch">
+            </div>
+            <div class="form-group">
+              <label for="company">Unternehmen</label>
+              <input type="text" id="company" name="company" placeholder="Mustermann GmbH">
+            </div>
+            <div class="form-group">
+              <label for="service">Gesuchte Leistung</label>
+              <select id="service" name="service">
+                <option value="">Bitte wählen…</option>
+                <option>Exploratives / Manuelles Testing</option>
+                <option>Mobile App Testing</option>
+                <option>Test Automation</option>
+                <option>Security / Penetration Testing</option>
+                <option>Performance Testing</option>
+                <option>Accessibility Testing</option>
+                <option>QA Maturity Assessment</option>
+                <option>Sonstiges</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Ihre Nachricht *</label>
+              <textarea id="message" name="message" required placeholder="Kurze Beschreibung Ihres Projekts und Ihre Anforderungen…"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Nachricht senden</button>
+            <p class="form-note">* Pflichtfelder. Ich antworte in der Regel innerhalb von 48 Stunden.</p>
+          </form>
+          <div id="form-success" role="alert">
+            ✓ Vielen Dank! Ich melde mich bald bei Ihnen.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <p>© 2025–2026 Alexander van der Berg · Zürich, Schweiz</p>
+      <nav class="footer-links" aria-label="Footer-Navigation">
+        <a href="mailto:alexander@vanderberg.de">E-Mail</a>
+        <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/avanderberg" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="/privacy-policy">Datenschutzerklärung</a>
+        <a href="#top">Nach oben ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close nav on link click (mobile)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Contact form with Formspree AJAX
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Wird gesendet…';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Fehler – bitte per E-Mail kontaktieren';
+          submitBtn.disabled = false;
+        }
+      } catch {
+        submitBtn.textContent = 'Fehler – bitte per E-Mail kontaktieren';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
