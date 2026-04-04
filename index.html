@@ -198,6 +198,22 @@
     .nav-links a:hover { color: var(--color-accent); }
     .nav-links .nav-cta { color: var(--color-accent); font-weight: 700; }
 
+    .lang-switch {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 4px;
+      padding: 3px 8px;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .lang-switch:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.6);
+    }
+
     .nav-toggle {
       display: none;
       background: none;
@@ -762,6 +778,7 @@
         <li><a href="#testimonials">Referenzen</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+        <li><a href="https://www.vanderberg.de" class="lang-switch" lang="en" hreflang="en" aria-label="Switch to English version">EN</a></li>
       </ul>
     </div>
   </nav>
