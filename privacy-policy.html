@@ -23,6 +23,7 @@
       --color-primary: #1a1a2e;
       --color-accent: #e8a838;
       --color-accent-dark: #c48a1f;
+      --color-accent-text: #8a6010;
       --color-text: #222;
       --color-text-light: #555;
       --color-bg: #fff;
@@ -34,7 +35,11 @@
       --shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-padding-top: 60px; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
 
     body {
       font-family: var(--font-sans);
@@ -44,8 +49,22 @@
       font-size: 1rem;
     }
 
-    a { color: var(--color-accent); text-decoration: none; }
-    a:hover { color: var(--color-accent-dark); }
+    a { color: var(--color-accent-text); text-decoration: none; }
+    a:hover { color: var(--color-primary); }
+    .nav-logo:hover { color: #fff; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 2000;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      border-radius: 0 0 var(--radius) 0;
+    }
+    .skip-link:focus { left: 0; }
 
     /* ===== NAVIGATION ===== */
     .nav {
@@ -193,6 +212,7 @@
 
     .policy-content a {
       overflow-wrap: anywhere;
+      text-decoration: underline;
     }
 
     /* ===== FOOTER ===== */
@@ -261,11 +281,13 @@
 </head>
 <body id="top">
 
+  <a href="#content" class="skip-link">Zum Inhalt springen</a>
+
   <!-- NAVIGATION -->
   <nav class="nav" role="navigation" aria-label="Hauptnavigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo">van der <span>Berg</span></a>
-      <button class="nav-toggle" aria-label="Menü öffnen/schliessen" aria-expanded="false" id="nav-toggle">
+      <button type="button" class="nav-toggle" aria-label="Menü öffnen/schliessen" aria-controls="nav-links" aria-expanded="false" id="nav-toggle">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links" role="list">
@@ -289,7 +311,7 @@
   </header>
 
   <!-- CONTENT -->
-  <main class="policy-body">
+  <main id="content" tabindex="-1" class="policy-body">
     <div class="policy-content">
 
       <p>In dieser Datenschutzerklärung (nachfolgend „Datenschutzerklärung“) erläutern wir, Alexander van der Berg (nachfolgend wir oder uns), wie wir personenbezogene Daten erheben und anderweitig verarbeiten.</p>
