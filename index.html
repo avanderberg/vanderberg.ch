@@ -576,6 +576,8 @@
       padding: 1.75rem;
       box-shadow: var(--shadow);
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     .testimonial-card::before {
@@ -600,8 +602,13 @@
 
     .testimonial-author {
       font-size: 0.85rem;
-      color: var(--color-text-light);
-      font-weight: 600;
+      color: var(--color-accent);
+      font-weight: 400;
+      background: #111;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-radius: var(--radius);
+      margin-top: auto;
     }
 
     /* ===== FAQ ===== */
@@ -751,7 +758,7 @@
     }
 
     /* ===== FOOTER ===== */
-    footer {
+    body > footer {
       background: #111;
       padding: 2rem 1.5rem;
       text-align: center;
@@ -767,7 +774,7 @@
       gap: 1rem;
     }
 
-    footer p {
+    body > footer p {
       color: rgba(255,255,255,0.65);
       font-size: 0.85rem;
     }
