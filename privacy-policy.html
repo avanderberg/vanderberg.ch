@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Content Security Policy, siehe index.html. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>Datenschutzerklärung | Alexander van der Berg</title>
-  <meta name="description" content="Datenschutzerklärung von Alexander van der Berg, Software-Qualitätssicherung und Testing.">
+  <meta name="description" content="Datenschutzerklärung von Alexander van der Berg, Informationssicherheit in Zürich.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1a1a2e">
   <link rel="canonical" href="https://www.vanderberg.ch/privacy-policy">
@@ -16,268 +20,7 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --color-primary: #1a1a2e;
-      --color-accent: #e8a838;
-      --color-accent-dark: #c48a1f;
-      --color-accent-text: #8a6010;
-      --color-text: #222;
-      --color-text-light: #555;
-      --color-bg: #fff;
-      --color-bg-soft: #f8f7f4;
-      --color-border: #e0ddd6;
-      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      --max-width: 1100px;
-      --radius: 8px;
-      --shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    html { scroll-padding-top: 60px; }
-
-    @media (prefers-reduced-motion: no-preference) {
-      html { scroll-behavior: smooth; }
-    }
-
-    body {
-      font-family: var(--font-sans);
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    a { color: var(--color-accent-text); text-decoration: none; }
-    a:hover { color: var(--color-primary); }
-    .nav-logo:hover { color: #fff; }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      z-index: 2000;
-      background: var(--color-accent);
-      color: var(--color-primary);
-      padding: 0.6rem 1rem;
-      font-weight: 700;
-      border-radius: 0 0 var(--radius) 0;
-    }
-    .skip-link:focus { left: 0; }
-
-    /* ===== NAVIGATION ===== */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(26, 26, 46, 0.97);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 0 1.5rem;
-    }
-
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-
-    .nav-logo {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-    .nav-logo span { color: var(--color-accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--color-accent); }
-    .nav-links .nav-cta { color: var(--color-accent); font-weight: 700; }
-
-    .lang-switch {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 4px;
-      padding: 3px 8px;
-      transition: color 0.2s, border-color 0.2s;
-      white-space: nowrap;
-    }
-    .lang-switch:hover {
-      color: #fff;
-      border-color: rgba(255,255,255,0.6);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* ===== PRIVACY POLICY CONTENT ===== */
-    .policy-header {
-      background: var(--color-primary);
-      padding: 4rem 1.5rem 3rem;
-    }
-
-    .policy-header-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .policy-header .section-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .policy-header h1 {
-      font-size: clamp(1.75rem, 4vw, 2.75rem);
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-
-    .policy-header .version {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.875rem;
-    }
-
-    .policy-body {
-      padding: 4rem 1.5rem 5rem;
-      background: var(--color-bg);
-    }
-
-    .policy-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .policy-content p {
-      color: var(--color-text-light);
-      margin-bottom: 1.25rem;
-    }
-
-    .policy-content h2 {
-      font-size: 1.3rem;
-      color: var(--color-primary);
-      margin-top: 2.5rem;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 2px solid var(--color-accent);
-      display: inline-block;
-    }
-
-    .policy-content h2:first-child { margin-top: 0; }
-
-    .policy-content ul {
-      margin: 0.5rem 0 1.25rem 1.5rem;
-      color: var(--color-text-light);
-    }
-
-    .policy-content ul li { margin-bottom: 0.4rem; }
-
-    .policy-content a {
-      overflow-wrap: anywhere;
-      text-decoration: underline;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    footer p {
-      color: rgba(255,255,255,0.4);
-      font-size: 0.85rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem 1.5rem;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.4);
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--color-accent); }
-
-    /* ===== MOBILE ===== */
-    @media (max-width: 768px) {
-      .nav-toggle { display: flex; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: var(--color-primary);
-        flex-direction: column;
-        padding: 1.5rem;
-        gap: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-
-      .nav-links.open { display: flex; }
-
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      .policy-header { padding: 3rem 1.25rem 2rem; }
-      .policy-body { padding: 3rem 1.25rem 4rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body id="top">
 
@@ -292,9 +35,9 @@
       </button>
       <ul class="nav-links" id="nav-links" role="list">
         <li><a href="/#about">Über mich</a></li>
-        <li><a href="/#services">Leistungen</a></li>
+        <li><a href="/#services">Kompetenzen</a></li>
+        <li><a href="/#projects">Werdegang</a></li>
         <li><a href="/#testimonials">Referenzen</a></li>
-        <li><a href="/#faq">FAQ</a></li>
         <li><a href="/#contact" class="nav-cta">Kontakt</a></li>
         <li><a href="https://www.vanderberg.de/privacy-policy" class="lang-switch" lang="en" hreflang="en" aria-label="Switch to English version">EN</a></li>
       </ul>
@@ -306,7 +49,7 @@
     <div class="policy-header-inner">
       <p class="section-label">Rechtliches</p>
       <h1>Datenschutzerklärung</h1>
-      <p class="version">Version gültig ab 11. Juni 2026</p>
+      <p class="version">Version gültig ab 25. August 2026</p>
     </div>
   </header>
 
@@ -335,7 +78,7 @@
 
       <h2>3 Zweck der Datenverarbeitung und Rechtsgrundlagen</h2>
 
-      <p>Wir verwenden die von uns erhobenen personenbezogenen Daten in erster Linie zur Anbahnung und Erfüllung von Verträgen mit unseren Kunden und Geschäftspartnern, insbesondere im Rahmen der folgenden Tätigkeit: Software-Qualitätssicherung und Testing. Im Rahmen dieser Tätigkeit erheben wir personenbezogene Daten für Transaktionen mit unseren Kunden sowie für den Erwerb von Produkten und Dienstleistungen von unseren Lieferanten und Unterauftragnehmern, und zur Erfüllung unserer gesetzlichen Pflichten im In- und Ausland. Wenn Sie für einen solchen Kunden oder Geschäftspartner tätig sind, können Ihre personenbezogenen Daten in dieser Eigenschaft selbstverständlich ebenfalls betroffen sein.</p>
+      <p>Wir verwenden die von uns erhobenen personenbezogenen Daten in erster Linie zur Anbahnung und Erfüllung von Verträgen mit unseren Kunden und Geschäftspartnern, insbesondere im Rahmen der folgenden Tätigkeit: Informationssicherheit, insbesondere Schwachstellenmanagement und Sicherheitsüberprüfung. Im Rahmen dieser Tätigkeit erheben wir personenbezogene Daten für Transaktionen mit unseren Kunden sowie für den Erwerb von Produkten und Dienstleistungen von unseren Lieferanten und Unterauftragnehmern, und zur Erfüllung unserer gesetzlichen Pflichten im In- und Ausland. Wenn Sie für einen solchen Kunden oder Geschäftspartner tätig sind, können Ihre personenbezogenen Daten in dieser Eigenschaft selbstverständlich ebenfalls betroffen sein.</p>
 
       <p>Darüber hinaus verarbeiten wir Ihre und die Daten anderer Personen, soweit dies zulässig ist und wir es für angemessen erachten, für folgende Zwecke, an denen wir (und manchmal auch Dritte) ein berechtigtes Interesse haben:</p>
 
@@ -427,7 +170,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-inner">
       <p>© 2025–2026 Alexander van der Berg · Zürich, Schweiz</p>
       <nav class="footer-links" aria-label="Footer-Navigation">
@@ -440,22 +183,7 @@
     </div>
   </footer>
 
-  <script>
-    const toggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-
-    toggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  </script>
+  <script src="/assets/main.js" defer></script>
 
 </body>
 </html>

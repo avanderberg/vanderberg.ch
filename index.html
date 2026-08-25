@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Content Security Policy. Muss vor allen ladenden Tags stehen.
+       form-action deckt den nativen POST ohne JavaScript ab, connect-src
+       den fetch-Pfad. frame-ancestors und X-Content-Type-Options lassen
+       sich per Meta-Tag nicht setzen; GitHub Pages erlaubt keine Header. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src https://formspree.io; form-action https://formspree.io; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- SEO Primary Meta Tags -->
   <title>Alexander van der Berg | Informationssicherheit &amp; Schwachstellenmanagement | Zürich</title>
@@ -20,10 +27,10 @@
   <meta property="og:url" content="https://www.vanderberg.ch/">
   <meta property="og:title" content="Alexander van der Berg | Informationssicherheit &amp; Schwachstellenmanagement | Zürich">
   <meta property="og:description" content="Informationssicherheit in Zürich: Schwachstellenmanagement, Sicherheitsüberprüfung und regulatorische Prüfung. Cyber Security Specialist mit eidg. Fachausweis, OSCP+, BSCP, CISSP Associate.">
-  <meta property="og:image" content="https://www.vanderberg.ch/images/portrait.webp">
-  <meta property="og:image:width" content="680">
-  <meta property="og:image:height" content="1014">
-  <meta property="og:image:alt" content="Porträt von Alexander van der Berg">
+  <meta property="og:image" content="https://www.vanderberg.ch/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alexander van der Berg, Informationssicherheit in Zürich">
   <meta property="og:locale" content="de_CH">
   <meta property="og:site_name" content="Alexander van der Berg">
 
@@ -31,7 +38,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alexander van der Berg | Informationssicherheit">
   <meta name="twitter:description" content="Schwachstellenmanagement, Sicherheitsüberprüfung, Regulatorik. Eidg. Fachausweis Cyber Security, OSCP+, BSCP, CISSP Associate. Zürich.">
-  <meta name="twitter:image" content="https://www.vanderberg.ch/images/portrait.webp">
+  <meta name="twitter:image" content="https://www.vanderberg.ch/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Alexander van der Berg, Informationssicherheit in Zürich">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -92,695 +100,7 @@
   }
   </script>
 
-  <style>
-    /* ===== CSS RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --color-primary: #1a1a2e;
-      --color-accent: #e8a838;
-      --color-accent-dark: #c48a1f;
-      --color-accent-text: #8a6010;
-      --color-text: #222;
-      --color-text-light: #555;
-      --color-bg: #fff;
-      --color-bg-soft: #f8f7f4;
-      --color-border: #e0ddd6;
-      --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      --max-width: 1100px;
-      --section-pad: 5rem 1.5rem;
-      --radius: 8px;
-      --shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    html { scroll-padding-top: 60px; }
-
-    @media (prefers-reduced-motion: no-preference) {
-      html { scroll-behavior: smooth; }
-    }
-
-    body {
-      font-family: var(--font-sans);
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: var(--color-accent-text); text-decoration: none; }
-    a:hover { color: var(--color-primary); }
-    .nav-logo:hover { color: #fff; }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      z-index: 2000;
-      background: var(--color-accent);
-      color: var(--color-primary);
-      padding: 0.6rem 1rem;
-      font-weight: 700;
-      border-radius: 0 0 var(--radius) 0;
-    }
-    .skip-link:focus { left: 0; }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--color-accent-text);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.25;
-      color: var(--color-primary);
-    }
-
-    h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1rem; }
-    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-
-    .btn {
-      display: inline-block;
-      background: var(--color-accent);
-      color: var(--color-primary);
-      padding: 0.85rem 2rem;
-      border-radius: var(--radius);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, transform 0.15s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn:hover { background: var(--color-accent-dark); color: var(--color-primary); transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--color-accent-text);
-      color: var(--color-accent-text);
-    }
-    .btn-outline:hover { background: var(--color-accent); color: var(--color-primary); }
-
-    /* ===== NAVIGATION ===== */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(26, 26, 46, 0.97);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 0 1.5rem;
-    }
-
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-
-    .nav-logo {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-    .nav-logo span { color: var(--color-accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--color-accent); }
-    .nav-links .nav-cta { color: var(--color-accent); font-weight: 700; }
-
-    .lang-switch {
-      color: rgba(255,255,255,0.6);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 4px;
-      padding: 3px 8px;
-      transition: color 0.2s, border-color 0.2s;
-      white-space: nowrap;
-    }
-    .lang-switch:hover {
-      color: #fff;
-      border-color: rgba(255,255,255,0.6);
-    }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background: var(--color-primary);
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('images/hero-bg.webp');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.18;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 4rem 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-    }
-    .hero-text h1 span { color: var(--color-accent); }
-
-    .hero-text .subtitle {
-      color: rgba(255,255,255,0.8);
-      font-size: 1.15rem;
-      margin-bottom: 2rem;
-      line-height: 1.65;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
-    }
-
-    .badge {
-      background: rgba(232,168,56,0.15);
-      border: 1px solid rgba(232,168,56,0.4);
-      color: var(--color-accent);
-      padding: 0.3rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .hero .section-label { color: var(--color-accent); }
-    .hero .btn-outline { color: var(--color-accent); border-color: var(--color-accent); }
-
-    .hero-image {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-photo {
-      width: 340px;
-      height: 440px;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      border: 3px solid rgba(232,168,56,0.3);
-    }
-
-    /* ===== TRUST BAR ===== */
-    .trust-bar {
-      background: var(--color-accent);
-      padding: 1rem 1.5rem;
-    }
-
-    .trust-bar-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      align-items: center;
-      list-style: none;
-    }
-
-    .trust-item {
-      color: var(--color-primary);
-      font-weight: 700;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    /* ===== ABOUT ===== */
-    #about { padding: var(--section-pad); background: var(--color-bg); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-photo {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .about-text p {
-      color: var(--color-text-light);
-      margin-bottom: 1rem;
-    }
-
-    .certifications {
-      margin-top: 1.5rem;
-      columns: 2;
-      column-gap: 1.5rem;
-      list-style: none;
-    }
-
-    .cert-item {
-      break-inside: avoid;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: var(--color-text-light);
-      line-height: 1.4;
-      margin-bottom: 0.75rem;
-    }
-
-    .cert-item::before {
-      content: "✓";
-      color: var(--color-accent);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    /* ===== SERVICES ===== */
-    #services { padding: var(--section-pad); background: var(--color-bg-soft); }
-
-    .services-intro {
-      max-width: 650px;
-      margin-bottom: 3rem;
-    }
-    .services-intro p { color: var(--color-text-light); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .service-card {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-    }
-
-    .service-card:hover {
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
-      border-color: var(--color-accent);
-    }
-
-    .service-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .service-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
-    .service-card p { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.5; }
-
-    /* ===== WHAT SETS ME APART ===== */
-    #apart { padding: var(--section-pad); background: var(--color-primary); }
-
-    #apart .section-label { color: var(--color-accent); }
-    #apart h2 { color: #fff; }
-
-    .apart-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .apart-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-
-    .apart-card h3 { color: var(--color-accent); font-size: 1rem; margin-bottom: 0.5rem; }
-    .apart-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; line-height: 1.6; }
-
-    /* ===== PROJECTS ===== */
-    #projects { padding: var(--section-pad); background: var(--color-bg); }
-
-    .projects-intro { color: var(--color-text-light); margin-bottom: 2.5rem; max-width: 650px; }
-
-    .projects-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      border-left: 3px solid var(--color-accent);
-      padding: 1.25rem 1.5rem;
-      background: var(--color-bg-soft);
-      border-radius: 0 var(--radius) var(--radius) 0;
-    }
-
-    .project-sector {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-accent-text);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-
-    .project-card ul {
-      padding-left: 1.2rem;
-      font-size: 0.88rem;
-      color: var(--color-text-light);
-      line-height: 1.7;
-    }
-
-    .project-tech {
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      color: var(--color-text-light);
-      font-style: italic;
-    }
-
-    /* ===== TESTIMONIALS ===== */
-    #testimonials { padding: var(--section-pad); background: var(--color-bg-soft); }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .testimonial-card {
-      background: var(--color-bg);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: -0.5rem;
-      left: 1.25rem;
-      font-size: 5rem;
-      color: var(--color-accent);
-      opacity: 0.3;
-      line-height: 1;
-      font-family: Georgia, serif;
-    }
-
-    .testimonial-text {
-      font-size: 0.95rem;
-      color: var(--color-text);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      font-size: 0.85rem;
-      color: var(--color-accent);
-      font-weight: 400;
-      background: #111;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border-radius: var(--radius);
-      margin-top: auto;
-    }
-
-    /* ===== ROLLEN-KENNZEICHNUNG (Abschnitt "Gesuchte Aufgaben") ===== */
-    .role-tag {
-      display: inline-block;
-      font-size: 0.72rem;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      margin-bottom: 0.6rem;
-    }
-    .role-tag.praxis { background: var(--color-accent); color: var(--color-primary); }
-    .role-tag.ziel { background: transparent; color: var(--color-accent-text); border: 1px solid var(--color-border); }
-
-    /* ===== CONTACT ===== */
-    #contact { padding: var(--section-pad); background: var(--color-primary); }
-
-    #contact .section-label { color: var(--color-accent); }
-    #contact h2 { color: #fff; margin-bottom: 0.5rem; }
-    #contact .contact-intro { color: rgba(255,255,255,0.75); margin-bottom: 2.5rem; max-width: 560px; }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .contact-info {
-      color: rgba(255,255,255,0.8);
-    }
-
-    .contact-info p { margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.7; }
-
-    .contact-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: rgba(255,255,255,0.85);
-      font-size: 0.95rem;
-    }
-    .contact-link:hover { color: var(--color-accent); }
-
-    .contact-form {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      padding: 2rem;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .form-group label {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: var(--radius);
-      padding: 0.7rem 1rem;
-      color: #fff;
-      font-size: 0.9rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--color-accent);
-      box-shadow: 0 0 0 3px rgba(232,168,56,0.45);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255,255,255,0.5);
-    }
-
-    .form-group select option { background: var(--color-primary); }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-
-    .form-note {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.65);
-      margin-top: 0.75rem;
-    }
-
-    #form-success {
-      display: none;
-      background: rgba(232,168,56,0.15);
-      border: 1px solid var(--color-accent);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      color: var(--color-accent);
-      font-size: 0.95rem;
-      margin-top: 1rem;
-    }
-
-    /* ===== FOOTER ===== */
-    body > footer {
-      background: #111;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    body > footer p {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.85rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem 1.5rem;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--color-accent); }
-
-    /* ===== MOBILE NAV ===== */
-    @media (max-width: 768px) {
-      .nav-toggle { display: flex; }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(26,26,46,0.98);
-        flex-direction: column;
-        padding: 1.5rem;
-        gap: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-
-      .nav-links.open { display: flex; }
-
-      /* Hero */
-      .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: center;
-        padding: 3rem 1.5rem;
-      }
-
-      .hero-image { order: -1; }
-
-      .hero-photo { width: 220px; height: 280px; }
-
-      .hero-badges { justify-content: center; }
-      .hero-actions { justify-content: center; }
-
-      /* About */
-      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .certifications { columns: 1; }
-
-      /* Contact */
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .form-row { grid-template-columns: 1fr; }
-
-      /* Footer */
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      :root { --section-pad: 3.5rem 1.25rem; }
-      .hero-text h1 { font-size: 2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 
@@ -844,11 +164,11 @@
 
   <!-- TRUST BAR -->
   <section class="trust-bar" aria-label="Kurzprofil">
-    <ul class="trust-bar-inner">
-      <li class="trust-item">✓ 13 Jahre Software-Delivery</li>
-      <li class="trust-item">✓ Reguliertes Umfeld: PSD2, DSGVO</li>
-      <li class="trust-item">✓ Zürich &amp; Umgebung</li>
-      <li class="trust-item">✓ Deutsch · Englisch · Spanisch</li>
+    <ul class="trust-bar-inner" role="list">
+      <li class="trust-item">13 Jahre Software-Delivery</li>
+      <li class="trust-item">Reguliertes Umfeld: PSD2, DSGVO</li>
+      <li class="trust-item">Zürich &amp; Umgebung</li>
+      <li class="trust-item">Deutsch · Englisch · Spanisch</li>
     </ul>
   </section>
 
@@ -859,6 +179,8 @@
         <div class="about-image">
           <img
             src="images/photo-on-computer.webp"
+            srcset="images/photo-on-computer-480.webp 480w, images/photo-on-computer.webp 800w"
+            sizes="(max-width: 768px) 100vw, 380px"
             alt="Alexander van der Berg bei der Arbeit"
             class="about-photo"
             width="800"
@@ -891,8 +213,8 @@
             Spanisch.
           </p>
 
-          <h3 style="margin-top: 1.75rem; margin-bottom: 0.75rem;">Qualifikationen</h3>
-          <ul class="certifications">
+          <h3 class="about-cert-heading">Qualifikationen</h3>
+          <ul class="certifications" role="list">
             <li class="cert-item">Cyber Security Specialist mit eidgenössischem Fachausweis (2023)</li>
             <li class="cert-item">OffSec Certified Professional+ (OSCP+, 2025)</li>
             <li class="cert-item">Burp Suite Certified Practitioner (BSCP, 2024)</li>
@@ -905,7 +227,7 @@
             <li class="cert-item">Diplom Wirtschaftsinformatiker (FH)</li>
           </ul>
 
-          <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="about-actions">
             <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn-Profil</a>
             <a href="#contact" class="btn btn-outline">Kontakt aufnehmen</a>
           </div>
@@ -1026,9 +348,25 @@
         Dreizehn Jahre Software-Delivery in agilen Produktteams, zuletzt bei einer regulierten
         Online-Bank. In den letzten Stationen habe ich die Freigabe von Releases verantwortet.
         Das lehrt schnell, welche Befunde einen Produktivgang blockieren und welche warten können.
-        Sicherheit war dabei Teil der laufenden Arbeit.
+        Sicherheit war dabei Teil der laufenden Arbeit. Seit 2022 richte ich mich beruflich
+        vollständig auf die Informationssicherheit aus.
       </p>
       <div class="projects-list">
+
+        <article class="project-card">
+          <p class="project-sector">Berufliche Neuausrichtung · 2022&#8211;2026</p>
+          <h3>Informationssicherheit</h3>
+          <ul>
+            <li>Cyber Security Specialist mit eidgenössischem Fachausweis (2023): Schwachstellen- und
+            Patchmanagement, Sicherheitsüberprüfung der ICT-Infrastruktur, Bedrohungsinformationen,
+            Sicherheitsvorfälle, digitale Forensik</li>
+            <li>OSCP+ (2025) und BSCP (2024): praktische, beaufsichtigte Prüfungen mit Ausnutzung von
+            Schwachstellen in bereitgestellten Prüfumgebungen</li>
+            <li>Vertiefung Incident Response und Windows-Forensik: Splunk, Autopsy, Auswertung von
+            Sysmon- und Windows-Ereignisprotokollen</li>
+            <li>Umzug von Berlin nach Zürich (2022)</li>
+          </ul>
+        </article>
 
         <article class="project-card">
           <p class="project-sector">Banking · 2019&#8211;2021</p>
@@ -1073,10 +411,10 @@
         </article>
 
       </div>
-      <p style="margin-top: 1.5rem; color: var(--color-text-light); font-size: 0.9rem;">
+      <p class="projects-note">
         Weitere Stationen seit 2009, darunter der erste Sicherheitsbefund 2011: Cross-Site-Scripting
         und eine SQL-basierte Denial-of-Service-Schwachstelle bei einem Fotodruckdienstleister.
-        <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">Vollständiger Werdegang auf LinkedIn &#8594;</a>
+        <a href="https://www.linkedin.com/in/avanderberg/" target="_blank" rel="noopener noreferrer">Vollständiger Werdegang auf LinkedIn &#8594;</a>
       </p>
     </div>
   </section>
@@ -1088,37 +426,48 @@
       <h2 id="testimonials-heading">Aus Arbeitszeugnissen</h2>
       <div class="testimonials-grid">
 
-        <blockquote class="testimonial-card">
-          <p class="testimonial-text">
-            "Herr van der Berg arbeitet auch in schwierigen Situationen und unter Zeitdruck absolut
-            zuverlässig, behält dabei einen klaren Kopf und hält Terminvorgaben stets ein."
-          </p>
-          <footer class="testimonial-author">Leiter Development Operations</footer>
-        </blockquote>
+        <figure class="testimonial-card">
+          <blockquote>
+            <p class="testimonial-text">
+              "Herr van der Berg arbeitet auch in schwierigen Situationen und unter Zeitdruck
+              absolut zuverlässig, behält dabei einen klaren Kopf und hält Terminvorgaben stets
+              ein."
+            </p>
+          </blockquote>
+          <figcaption class="testimonial-author">Leiter Development Operations</figcaption>
+        </figure>
 
-        <blockquote class="testimonial-card">
-          <p class="testimonial-text">
-            "Wir lernten Herrn van der Berg als einen sehr zuverlässigen Mitarbeiter kennen.
-            Die ihm gestellten Aufgaben erledigte er stets zu unserer vollsten Zufriedenheit."
-          </p>
-          <footer class="testimonial-author">Geschäftsführer</footer>
-        </blockquote>
+        <figure class="testimonial-card">
+          <blockquote>
+            <p class="testimonial-text">
+              "Wir lernten Herrn van der Berg als einen sehr zuverlässigen Mitarbeiter kennen.
+              Die ihm gestellten Aufgaben erledigte er stets zu unserer vollsten
+              Zufriedenheit."
+            </p>
+          </blockquote>
+          <figcaption class="testimonial-author">Geschäftsführer</figcaption>
+        </figure>
 
-        <blockquote class="testimonial-card">
-          <p class="testimonial-text">
-            "Herr van der Berg besitzt ein äusserst fundiertes und breites Fachwissen in allen
-            Bereichen der Software-QA. Hinzu kommt seine sehr gute Kenntnis agiler Entwicklungsprozesse."
-          </p>
-          <footer class="testimonial-author">IT-Leiter</footer>
-        </blockquote>
+        <figure class="testimonial-card">
+          <blockquote>
+            <p class="testimonial-text">
+              "Herr van der Berg besitzt ein äusserst fundiertes und breites Fachwissen in
+              allen Bereichen der Software-QA. Hinzu kommt seine sehr gute Kenntnis agiler
+              Entwicklungsprozesse."
+            </p>
+          </blockquote>
+          <figcaption class="testimonial-author">IT-Leiter</figcaption>
+        </figure>
 
-        <blockquote class="testimonial-card">
-          <p class="testimonial-text">
-            "Herr van der Berg besitzt umfangreiche Fachkenntnisse, eine sehr zielstrebige und
-            umsichtige Arbeitsweise sowie ein hohes Mass an Selbständigkeit."
-          </p>
-          <footer class="testimonial-author">Kaufmännischer Leiter</footer>
-        </blockquote>
+        <figure class="testimonial-card">
+          <blockquote>
+            <p class="testimonial-text">
+              "Herr van der Berg besitzt umfangreiche Fachkenntnisse, eine sehr zielstrebige
+              und umsichtige Arbeitsweise sowie ein hohes Mass an Selbständigkeit."
+            </p>
+          </blockquote>
+          <figcaption class="testimonial-author">Kaufmännischer Leiter</figcaption>
+        </figure>
 
       </div>
     </div>
@@ -1136,8 +485,8 @@
 
       <div class="contact-grid">
         <div class="contact-info">
-          <p>
-            <strong style="color:#fff;">Offen für neue Aufgaben in der Informationssicherheit, 80%, im Raum Zürich.</strong>
+          <p class="contact-lead">
+            Offen für neue Aufgaben in der Informationssicherheit, 80%, im Raum Zürich.
           </p>
           <p>
             Am meisten interessieren mich Schwachstellenmanagement und Sicherheitsüberprüfung, dazu
@@ -1165,9 +514,12 @@
             id="contact-form"
             action="https://formspree.io/f/mykbggzo"
             method="POST"
+            data-msg-required="Bitte füllen Sie dieses Feld aus."
+            data-msg-email="Bitte geben Sie eine gültige E-Mail-Adresse ein."
+            data-msg-sending="Wird gesendet…"
           >
             <input type="hidden" name="_subject" value="Kontaktformular vanderberg.ch">
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-row">
               <div class="form-group">
                 <label for="first-name">Vorname *</label>
@@ -1190,11 +542,15 @@
               <label for="message">Ihre Nachricht *</label>
               <textarea id="message" name="message" required placeholder="Worum geht es?"></textarea>
             </div>
-            <button type="submit" class="btn" style="width:100%;">Nachricht senden</button>
+            <button type="submit" class="btn btn-block">Nachricht senden</button>
             <p class="form-note">* Pflichtfelder. Ich antworte in der Regel innerhalb von 48 Stunden.</p>
           </form>
-          <div id="form-success" role="alert">
+          <div id="form-success" role="alert" tabindex="-1">
             ✓ Vielen Dank! Ich melde mich bald bei Ihnen.
+          </div>
+          <div id="form-error" role="alert">
+            Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder
+            schreiben Sie an <a href="mailto:alexander@vanderberg.de">alexander@vanderberg.de</a>.
           </div>
         </div>
       </div>
@@ -1217,69 +573,7 @@
     </div>
   </footer>
 
-  <script>
-    // Mobile nav toggle
-    const toggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-
-    toggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close nav on link click (mobile)
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Contact form with Formspree AJAX
-    const form = document.getElementById('contact-form');
-
-    // Deutsche Validierungsmeldungen. Die Standardtexte des Browsers richten sich
-    // nach dessen Sprache, nicht nach lang="de", daher hier explizit gesetzt.
-    const meldungen = {
-      valueMissing: 'Bitte füllen Sie dieses Feld aus.',
-      typeMismatch: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
-    };
-    form.querySelectorAll('input, textarea, select').forEach(feld => {
-      feld.addEventListener('invalid', () => {
-        feld.setCustomValidity('');
-        if (feld.validity.valueMissing) feld.setCustomValidity(meldungen.valueMissing);
-        else if (feld.validity.typeMismatch) feld.setCustomValidity(meldungen.typeMismatch);
-      });
-      feld.addEventListener('input', () => feld.setCustomValidity(''));
-    });
-    const successMsg = document.getElementById('form-success');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.textContent = 'Wird gesendet…';
-      submitBtn.disabled = true;
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          successMsg.style.display = 'block';
-        } else {
-          submitBtn.textContent = 'Fehler: bitte per E-Mail kontaktieren';
-          submitBtn.disabled = false;
-        }
-      } catch {
-        submitBtn.textContent = 'Fehler: bitte per E-Mail kontaktieren';
-        submitBtn.disabled = false;
-      }
-    });
-  </script>
+  <script src="/assets/main.js" defer></script>
 
 </body>
 </html>
