@@ -129,7 +129,14 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
   align-items: center;
 }
 
+/* inline-flex mit min-height: als reine Inline-Elemente sind die Links nur
+   17px hoch. inline-flex statt flex, damit .lang-switch seinen Rahmen
+   weiterhin um den Text legt und im Mobilmenü nicht über die volle
+   Breite geht. */
 .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
   color: rgba(255,255,255,0.85);
   font-size: 0.9rem;
   font-weight: 500;
@@ -154,13 +161,18 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
   border-color: rgba(255,255,255,0.6);
 }
 
+/* min-width/height 44px: WCAG 2.2 fordert 24x24, Apple und Android
+   empfehlen 44. Passt in die 60px hohe Navigationsleiste. */
 .nav-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
 }
 .nav-toggle span {
@@ -476,8 +488,11 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 
 .testimonial-card blockquote { margin: 0; }
 
+/* Sprachabhängig, weil beide Sites dasselbe Stylesheet nutzen. Das
+   "/ ''" gibt dem Ornament einen leeren Accessible Name, damit
+   Screenreader es nicht zusätzlich zum Zitat vorlesen. */
 .testimonial-card::before {
-  content: '"';
+  content: '\201C' / '';
   position: absolute;
   top: -0.5rem;
   left: 1.25rem;
@@ -487,6 +502,8 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
   line-height: 1;
   font-family: Georgia, serif;
 }
+
+.testimonial-card:lang(de)::before { content: '\201E' / ''; }
 
 .testimonial-text {
   font-size: 0.95rem;
@@ -660,9 +677,12 @@ body > footer p {
   gap: 0.5rem 1.5rem;
 }
 
+/* Padding statt blosser Zeilenhöhe: sonst sind die Links nur 23px hoch
+   und verfehlen die 24x24 aus WCAG 2.2 (SC 2.5.8). */
 .footer-links a {
   color: rgba(255,255,255,0.65);
   font-size: 0.85rem;
+  padding: 0.25rem 0;
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--color-accent); }
