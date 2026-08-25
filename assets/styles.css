@@ -589,10 +589,14 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
   font-weight: 500;
 }
 
+/* Rahmen 0.45 statt 0.2: der Rahmen ist das einzige Merkmal, das das Feld
+   als Bedienelement erkennbar macht, und muss deshalb nach WCAG 1.4.11
+   auf 3:1 gegen die Kartenfläche kommen. 0.2 ergab nur 1.92:1, 0.45
+   ergibt 4.22:1 gegen die Karte und 3.32:1 gegen die Feldfüllung. */
 .form-group input,
 .form-group textarea {
   background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.45);
   border-radius: var(--radius);
   padding: 0.7rem 1rem;
   color: #fff;
