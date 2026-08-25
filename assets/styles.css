@@ -184,6 +184,13 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
   transition: all 0.3s;
 }
 
+/* Offenes Menü: die drei Balken werden zum X. aria-expanded pflegt bereits
+   main.js, es braucht dafür keine zusätzliche Klasse. Der Versatz um 7px
+   entspricht Balkenhöhe plus gap, damit sich die Linien mittig kreuzen. */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ===== HERO ===== */
 .hero {
   /* svh statt vh: sonst springt die Sektion beim Ein- und Ausblenden
@@ -583,8 +590,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: var(--radius);
@@ -596,8 +602,7 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
 }
 
 .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.form-group textarea:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(232,168,56,0.45);
@@ -610,7 +615,6 @@ h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
   color: rgba(255,255,255,0.58);
 }
 
-.form-group select option { background: var(--color-primary); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 
 .form-note {
@@ -705,6 +709,28 @@ body > footer p {
   }
 
   .nav-links.open { display: flex; }
+
+  /* Im aufgeklappten Menü soll die ganze Zeilenbreite tippbar sein, nicht
+     nur der Text. .lang-switch bleibt davon ausgenommen, sonst zieht sich
+     sein Rahmen über die volle Breite.
+     Zentriert wird zweifach, weil die Links über die volle Breite als Flex
+     ausgerichtet werden, .lang-switch als inline-flex dagegen über
+     text-align des umgebenden li. */
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: flex;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .nav-links .lang-switch {
+    display: inline-flex;
+    width: auto;
+  }
 
   /* Hero */
   .hero-content {

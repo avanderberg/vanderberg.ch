@@ -84,7 +84,10 @@
       successMsg.focus();
     } catch {
       // Beschriftung des Buttons bleibt erhalten, der Fehler steht daneben.
+      // Fokus auf die Meldung, weil role="alert" allein nicht zuverlässig
+      // vorgelesen wird, wenn sich nur display ändert und nicht der Inhalt.
       errorMsg.style.display = 'block';
+      errorMsg.focus();
       submitBtn.textContent = submitLabel;
       submitBtn.disabled = false;
     }
